@@ -59,6 +59,19 @@ public class ContactBook {
         contacts[searchIndex(name)].setEmail(email);
     }
 
+    public String getName(int number) {
+        int i = 0;
+        boolean found = false;
+        while (i<counter && !found) {
+            if(contacts[i].getPhone() == number)
+                found = true;
+            else
+                i++;
+        }
+        if (found) return contacts[i].getName();
+        else return "";
+    }
+
     private int searchIndex(String name) {
         int i = 0;
         int result = -1;
