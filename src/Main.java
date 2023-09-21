@@ -9,6 +9,7 @@ public class Main {
     public static final String REMOVE_CONTACT = "RC";
     public static final String GET_PHONE = "GP";
     public static final String GET_EMAIL = "GE";
+    public static final String SEARCH_DUP_NO  = "EP";
     public static final String SET_PHONE = "SP";
     public static final String SET_EMAIL = "SE";
     public static final String LIST_CONTACTS = "LC";
@@ -56,6 +57,9 @@ public class Main {
                 case FIND_BY_PHONE_NUMBER:
                     getName(in, cBook);
                     break;
+                case SEARCH_DUP_NO:
+                    searchDupNum(cBook);
+                    break;   
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -161,4 +165,11 @@ public class Main {
         } else
             System.out.println(name);
     }
+
+    private static void searchDupNum(ContactBook cBook) {
+		if (cBook.searchDupNum())
+			System.out.println("There are contacts that share phone numbers.");
+		else
+			System.out.println("All contacts have different phone numbers.");
+	}
 }
