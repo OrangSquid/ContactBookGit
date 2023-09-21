@@ -23,6 +23,21 @@ public class ContactBook {
         return counter;
     }
 
+    public boolean searchDupNum() {
+        int i = 0, j = 1;
+        boolean found = false;
+        while (i<counter && !found) {
+            while (j<counter && !found) {
+                if (contacts[i].getPhone() == contacts[j].getPhone())
+                    found = true;
+                j++;
+            }
+            i++;
+            j = i + 1;
+        }
+        return found;
+    }
+
     //Pre: name!= null && !hasContact(name)
     public void addContact(String name, int phone, String email) {
         if (counter == contacts.length)
